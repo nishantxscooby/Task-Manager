@@ -2,6 +2,8 @@
 
 Production-ready task management app with JWT auth, CRUD APIs, pagination, filtering, and secure cookies.
 
+**Live app:** [https://task-manager-8fre0s4i2-officialnishant21-gmailcoms-projects.vercel.app](https://task-manager-8fre0s4i2-officialnishant21-gmailcoms-projects.vercel.app)
+
 ## Tech Stack
 
 - **Frontend:** Next.js 14 (App Router), React
