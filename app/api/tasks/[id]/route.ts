@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+
+export const dynamic = "force-dynamic";
 import { requireUser } from "@/lib/auth";
 import { taskUpdateSchema } from "@/lib/validation";
 
