@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-
-export const dynamic = "force-dynamic";
 import { prisma } from "@/lib/db";
 import { setAuthCookie } from "@/lib/cookies";
 import { createToken } from "@/lib/auth";
 import { loginSchema } from "@/lib/validation";
+
+export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
