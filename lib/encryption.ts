@@ -7,7 +7,7 @@ const ALG = "AES-GCM";
 const IV_LEN = 12;
 const TAG_LEN = 128;
 
-function getKey(): CryptoKey {
+async function getKey(): Promise<CryptoKey> {
   const raw = process.env.ENCRYPTION_KEY;
   if (!raw || raw.length !== 64 || !/^[0-9a-fA-F]+$/.test(raw)) {
     throw new Error("ENCRYPTION_KEY must be 64 hex characters");
