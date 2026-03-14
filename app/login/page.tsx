@@ -1,17 +1,21 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-function LoginForm() {
+export default function LoginPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const from = searchParams.get("from") || "/tasks";
+  const [from, setFrom] = useState("/tasks");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
+    setFrom(params.get("from") || "/tasks");
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -74,13 +78,5 @@ function LoginForm() {
         </p>
       </div>
     </main>
-  );
-}
-
-export default function LoginPage() {
-  return (
-    <Suspense fallback={<div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>Loading…</div>}>
-      <LoginForm />
-    </Suspense>
   );
 }
